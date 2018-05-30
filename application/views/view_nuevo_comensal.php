@@ -121,19 +121,19 @@
 	echo '</td>';
 	echo '<td><font color="red">'.form_error('EDAD').'</font></td>';
 	echo '</tr>';
-	
-	$Turno = array(
-	'0'               	=> 'SELECCIONE EL TURNO',
-	'Mañana'		=> 'Mañana',
-	'Tarde'	    	=> 'Tarde',
+
+    $Turno = array(
+	'NONE'   => 'SELECCIONE EL TURNO',
+	'0'	     => 'Mañana',
+	'1'      => 'Tarde',
 	);
 	echo '<tr>';
-    echo '<td>'.form_label("Turno:",'TURNO').'</td>';
-    echo '<td>';
-    echo  form_dropdown('TURNO', $Turno, set_value('TURNO',@$datos_comensales[0]->TURNO));
-    echo '</td>';
-    echo '<td><font color="red">'.form_error('TURNO').'</font></td>';
-    echo '</tr>';
+	echo '<td>'.form_label("Turno:",'TURNO').'</td>';
+	echo '<td>';
+	echo  form_dropdown('TURNO', $Turno, set_value('TURNO',@$datos_comensales[0]->TURNO));
+	echo '</td>';
+	echo '<td><font color="red">'.form_error('TURNO').'</font></td>';
+	echo '</tr>';   
 
     $Correo 		  = array(
 	'name'        => 'CORREO',
