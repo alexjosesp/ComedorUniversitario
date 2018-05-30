@@ -67,6 +67,47 @@ class comensales extends CI_Controller
 		 $this->form_validation->set_rules("CORREO", "Correo", "trim|required");
 	 }
 
+   /*CONTROLADOR QUE INSTANCIA LA FUNCIÓN edit DEL MODELO model_comensales ENCARGADO DE EDITAR UN REGISTRO DE LA TABLA comensales*/
+   public function editar($codigo = NULL){
+    
+    if ($codigo == NULL OR !is_numeric($codigo)){
+      $data['Modulo']  = "Comensales";
+      $data['Error']   = "Error: El CODIGO <strong>".$codigo."</strong> No es Valido, Verifica tu Busqueda !!!!!!!";
+      $this->load->view('header');
+      $this->load->view('view_errors',$data);
+      $this->load->view('footer');
+      return;
+    }
+    if ($this->input->post()) {
+      
+      $this->ValidaCampos();
+        
+      if ($this->form_validation->run() == TRUE){
+        $datos_update = $this->input->post();
+        $codigo_insertado = $this->model_comensales->edit($datos_update,$codigo);
+        redirect('comensales?update=true');
+        
+      }else{
+        $this->Nuevo();
+      }
+      
+    }else{
+      $data['datos_comensales'] = $this->model_comensales->BuscarCODIGO($codigo);
+      if (empty($data['datos_comensales'])){
+        $data['Modulo']  = "Comensales";
+        $data['Error']   = "Error: El ID <CODIGO>".$codigo."</strong> No es Valido, Verifica tu Busqueda !!!!!!!";
+        $this->load->view('header');
+        $this->load->view('view_errors',$data);
+        $this->load->view('footer');
+      }else{
+        $this->load->view('header');
+        $this->load->view('view_nuevo_comensal',$data);
+        $this->load->view('footer');
+      }
+    }
+    
+  }
+
   /*CONTROLADOR QUE INSTANCIA EL MODELO model_comensales ENCARGADO DE ELIMINAR UN REGISTRO DE LA TABLA comensales*/
   public function eliminar($codigo = NULL){
     if ($codigo == NULL OR !is_numeric($codigo)){
