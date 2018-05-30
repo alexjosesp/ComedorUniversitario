@@ -64,7 +64,13 @@ if(isset($_GET['permisos'])){
 		echo '<td>'.$comensal->DNI.'</td>';
 		echo '<td>'.$comensal->FACULTAD.'</td>';
 		echo '<td>'.$comensal->EDAD.'</td>';
-		echo '<td>'.$comensal->TURNO.'</td>';
+		/*Si es TURNO mostramos en texto*/
+			if($comensal->TURNO==0){
+			echo '<td>Mañana</td>';
+			}
+			if($comensal->TURNO==1){
+			echo '<td>Tarde</td>';
+			}
 		echo '<td>'.$comensal->CORREO.'</td>';
  		echo '</tr>';
  	} 
