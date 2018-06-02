@@ -35,18 +35,31 @@ if(isset($_GET['permisos'])){
 <tr>
 <th>ID_ASISTENCIA</th>
 <th>CODIGO</th>
+<th>NOMBRE</th>
+<th>SEXO</th>
+<th>DNI</th>
+<th>FACULTAD</th>
+<th>EDAD</th>
+<th>TURNO</th>
 <th>FECHA_ASISTENCIA</th>
 </tr>
 </thead>
 <tbody>
  <?php 
  $contador = 0;
- if(!empty($usuarios)){
- 	foreach($usuarios as $usuario){
+ if(!empty($asistencias)){
+ 	foreach($asistencias as $asistencia){
  		echo '<tr>';
- 		echo '<td>'.$usuario->ID_ASISTENCIA.'</td>';
- 		echo '<td>'.$usuario->CODIGO.'</td>';
- 		echo '<td>'.$usuario->FECHA_ASISTENCIA.'</td>';
+ 		echo '<td>'.$asistencia->ID_ASISTENCIA.'</td>';
+ 		echo '<td>'.$asistencia->CODIGO.'</td>';
+ 		echo '<td>'.$asistencia->NOMBRE.' '.$asistencia->APELLIDOS.'</td>';
+ 		echo '<td>'.$asistencia->SEXO.'</td>';
+ 		echo '<td>'.$asistencia->DNI.'</td>';
+ 		echo '<td>'.$asistencia->FACULTAD.'</td>';
+ 		echo '<td>'.$asistencia->EDAD.'</td>';
+ 		echo '<td>'.$asistencia->TURNO.'</td>';
+ 		echo '<td>'.$asistencia->FECHA_ASISTENCIA.'</td>';
+ 		
  		echo '</tr>';
  	} 
  }
