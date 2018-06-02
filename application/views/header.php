@@ -13,7 +13,7 @@
 <title>Codeigniter y Mysqli</title>
 </head>
 <body>
-	<h3 align="center">COMEDOR UNIVERSITARIO <br/> UNIVERSIDAD TECNOLOGICA DE LOS ANDES</h3>
+	<h3 align="center">COMEDOR UNIVERSITARIO <br/> UTEA</h3>
 	<?php
 		if ($this->session->userdata('is_logged_in')){
 			echo '<h4 align="right">';
