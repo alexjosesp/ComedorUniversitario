@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/ComedorUniversitario/';
+$config['base_url']	= 'http://172.16.0.235:8080/ComedorUniversitario/';
 
 /*
 |--------------------------------------------------------------------------
