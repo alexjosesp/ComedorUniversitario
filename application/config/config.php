@@ -12,9 +12,10 @@
 |
 | If this is not set then CodeIgniter will guess the protocol, domain and
 | path to your installation.
+$config['base_url']	= 'http://172.16.0.235:8080/ComedorUniversitario/';
 |
 */
-$config['base_url']	= 'http://172.16.0.235:8080/ComedorUniversitario/';
+$config['base_url']	= 'http://192.168.1.81:8080/ComedorUniversitario/';
 
 /*
 |--------------------------------------------------------------------------
