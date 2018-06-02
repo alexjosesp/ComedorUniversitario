@@ -4,36 +4,22 @@ class model_asistencia extends CI_Model {
 		$this->db->order_by('ID_ASISTENCIA ASC');
 		return $this->db->get('asistencia')->result();
 	}
-	public function ExisteEmail($email){
-          $this->db->from('usuarios');
-          $this->db->where('EMAIL',$email);
-          return $this->db->count_all_results();
-     }
-     public function SaveUsuarios($arrayCliente){
-     	/*Nos aseguramos si realizamos todo o no*/
-     	$this->db->trans_start();
-     	$this->db->insert('usuarios', $arrayCliente);
-     	$this->db->trans_complete();	
-     }
-	 function BuscarID($id){
+	 function BuscarID_ASISTENCIA($id_asistencia){
 
-		$query = $this->db->where('ID',$id);
-		$query = $this->db->get('usuarios');
+		$query = $this->db->where('ID_ASISTENCIA',$id_asistencia);
+		$query = $this->db->get('asistencia');
 		return $query->result();
 		
 	}
-	function edit($data,$id){
 
-		$this->db->where('ID',$id);
-		$this->db->update('usuarios',$data);
-		
+	public function myjoin()
+	{
+		$this->db->select('*');
+		$this->db->from('asistencia');
+		$this->db->join('comensales','asistencia.codigo = comensales.codigo');
+		return $this->db->get()->result();
 	}
-	function Eliminar($id){
 
-		$this->db->where('ID',$id);
-		$this->db->delete('usuarios');
-		
-	}
 	function MenuCompleto(){
 		$this->db->order_by('ORDENAMIENTO ASC');
 		return $this->db->get('menu_sistema')->result();
@@ -44,26 +30,6 @@ class model_asistencia extends CI_Model {
 		$this->db->where('ID_MENU',$id_menu);
 		$this->db->where('ESTATUS',0);
 		return $this->db->count_all_results();
-	}
-	function DesactivaPermisos($id){
-		$this->db->where('ID_USUARIO',$id);
-		$success = $this->db->update('permisosmenu',array('ESTATUS' => 1));
-	}
-	function ExistePermiso($id,$id_menu){
-		$this->db->from('permisosmenu');
-		$this->db->where('ID_USUARIO',$id);
-		$this->db->where('ID_MENU',$id_menu);
-		return $this->db->count_all_results();
-	}
-	function ActualizaPermiso($id,$id_menu){
-		$this->db->where('ID_USUARIO',$id);
-		$this->db->where('ID_MENU',$id_menu);
-		$success = $this->db->update('permisosmenu',array('ESTATUS' => 0));
-	}
-	function AgregaPermiso($arraypermisos){
-		$this->db->trans_start();
-     	$this->db->insert('permisosmenu', $arraypermisos);
-     	$this->db->trans_complete();
 	}
 }
 ?>
