@@ -21,7 +21,7 @@ class asistencia extends CI_Controller
           /*Si el usuario esta logeado*/
           $this->Seguridad();
           $this->load->view('header');
-          $data['asistencias'] = $this->model_asistencia->myjoin();
+          $data['asistencias'] = $this->model_asistencia->ListarAsistencia();
           $this->load->view('view_asistencia', $data);
           $this->load->view('footer');
 	}
