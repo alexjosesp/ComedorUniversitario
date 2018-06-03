@@ -1,23 +1,21 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class model_asistencia extends CI_Model {
-	public function ListarAsistencia(){
-		$this->db->order_by('ID_ASISTENCIA ASC');
-		return $this->db->get('asistencia')->result();
-	}
-	 function BuscarID_ASISTENCIA($id_asistencia){
 
-		$query = $this->db->where('ID_ASISTENCIA',$id_asistencia);
-		$query = $this->db->get('asistencia');
-		return $query->result();
-		
-	}
-
-	public function myjoin()
+	public function ListarAsistencia()
 	{
 		$this->db->select('*');
 		$this->db->from('asistencia');
 		$this->db->join('comensales','asistencia.codigo = comensales.codigo');
 		return $this->db->get()->result();
+	}
+
+	 function BuscarNOMBRE($nombre){
+	 	$this->db->select('*');
+		$this->db->from('asistencia');
+		$this->db->join('comensales','asistencia.codigo = comensales.codigo');
+		$this->db->where('comensales.nombre',$nombre);
+		return $this->db->get()->result();
+		
 	}
 
 	function MenuCompleto(){
