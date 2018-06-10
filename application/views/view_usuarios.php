@@ -9,7 +9,7 @@
                 } );
             } );
 </script>
-
+<div class="content-wrapper">  
 <div id="container">
 	<h2 align="center">Catalogo de Usuarios</h2>
 	<?php
@@ -79,4 +79,5 @@ if(isset($_GET['permisos'])){
 </tbody>
 </table>
 </center>
+</div>
 </div>

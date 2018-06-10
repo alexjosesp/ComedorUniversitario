@@ -1,4 +1,5 @@
 <?php
+    echo '<div class="content-wrapper"> ';
 	  echo '<center>';
 	  echo '<table border=0 class="ventanas" width="650" cellspacing="0" cellpadding="0">';
 	  echo '<tr>';
@@ -90,21 +91,6 @@
 	echo '<td><font color="red">'.form_error('DNI').'</font></td>';
 	echo '</tr>';
 
-	$Facultad 		  = array(
-	'name'        => 'FACULTAD',
-	'id'          => 'FACULTAD',
-	'size'        => 50,
-	'value'		  => set_value('FACULTAD',@$datos_comensales[0]->FACULTAD),
-	'placeholder' => 'Facultad',
-	'type'        => 'text',
-	);
-	echo '<tr>';
-	echo '<td>'.form_label("FACULTAD:",'FACULTAD').'</td>';
-	echo '<td>';
-	echo form_input($Facultad);
-	echo '</td>';
-	echo '<td><font color="red">'.form_error('FACULTAD').'</font></td>';
-	echo '</tr>';
 
 	$Edad 		  = array(
 	'name'        => 'EDAD',
@@ -149,7 +135,17 @@
 	echo form_input($Correo);
 	echo '</td>';
 	echo '<td><font color="red">'.form_error('CORREO').'</font></td>';
-	echo '</tr>';  
+	echo '</tr>'; 
+
+	echo '<tr>';
+	echo '<td>';
+	echo '<label for="FACULTAD">Facultad:</label>';
+	echo '</td>';
+	echo '<td>';
+	echo '<select name="FACULTAD" id="facultad"></select>';
+	echo '</td>';
+	echo '</tr>'; 
+
 		
 	echo '<tr>';
 	echo '<td colspan=3>'.$this->session->flashdata('msg').'</td>';
@@ -164,4 +160,11 @@
     echo '</td></tr>';
     echo '</table>';
     echo '</center>';
+echo '</div>';
 ?>
+  
+
+<div>
+	
+</div>
+<script type="text/javascript" language="javascript" src="<?php echo base_url();?>js/facultades.js"></script>

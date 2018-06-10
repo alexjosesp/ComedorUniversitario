@@ -108,6 +108,12 @@ class comensales extends CI_Controller
     
   }
 
+  /**CONTROLADOR PARA SELECIONAR UNA FACULTAD**/
+  public function facultades(){
+    $facultades = $this->model_comensales->Facultades();
+    echo json_encode($facultades);
+  }
+
   /*CONTROLADOR QUE INSTANCIA EL MODELO model_comensales ENCARGADO DE ELIMINAR UN REGISTRO DE LA TABLA comensales*/
   public function eliminar($codigo = NULL){
     if ($codigo == NULL OR !is_numeric($codigo)){

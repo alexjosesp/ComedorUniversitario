@@ -1,4 +1,4 @@
-
+<div class="content-wrapper"> 
 <center>
     
 <?php 
@@ -71,3 +71,4 @@
  <?php echo form_close(); ?>
           
 </center>
+</div>

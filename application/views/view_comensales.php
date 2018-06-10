@@ -1,4 +1,4 @@
-
+<div class="content-wrapper"> 
 <script type="text/javascript">
             /*CLIENTES*/
             $(document).ready(function() {
@@ -80,4 +80,5 @@ if(isset($_GET['permisos'])){
 </tbody>
 </table>
 </center>
+</div>
 </div>

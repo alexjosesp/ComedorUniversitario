@@ -40,6 +40,14 @@ class model_comensales extends CI_Model {
     $this->db->where('CODIGO',$codigo);
     $this->db->delete('comensales');  
   }
+
+  /*MODELO PARA SELECCIONAR UNA FACULTAD*/
+  public function Facultades(){
+    $sql="select * from facultad";
+    $query=$this->db->query($sql);
+    return $query->result();
+  }
+
   function MenuCompleto()
   {
     $this->db->order_by('ORDENAMIENTO ASC');
